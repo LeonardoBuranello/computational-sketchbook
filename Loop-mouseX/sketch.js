@@ -1,10 +1,14 @@
+
+
+// Variables definition
 let bg, st, nd, rd, acc, ext, wh, bl;
 
 function setup() {
-  // Invece di 400x400, usiamo le dimensioni della finestra di Framer
+
+  // Adapting the sketch to width and height of the screen
   createCanvas(windowWidth, windowHeight);
   
-  // Definizione colori originali
+  // Color variables
   bg = '#011C27';
   st = '#FAA6FF';
   nd = '#4F172A';
@@ -15,10 +19,12 @@ function setup() {
   bl = '#000000';
 }
 
+
+
 function draw() {
   background(nd);
 
-  // Rettangoli - Loop 1
+  // Rect - Loop 1
   fill(ext);
   noStroke();
   rectMode(CORNER);
@@ -37,7 +43,7 @@ function draw() {
     pop();
   }
   
-  // Rettangoli - Loop 2
+  // Rect - Loop 2
   for(let i = 0; i < mouseX; i++){
     push();
     translate(width/2, height/2);
@@ -52,7 +58,7 @@ function draw() {
     pop();
   }
   
-  // Cerchio cursore
+  // Cursor shape
   push();
   translate(mouseX, mouseY);
   fill(rd);
@@ -61,7 +67,7 @@ function draw() {
   pop();
 }
 
-// Questa funzione è vitale per Framer: adatta lo sketch se ridimensioni il componente
+// 'Responsiveness'
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
