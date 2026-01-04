@@ -75,7 +75,7 @@ function draw (){
     
     let dir = (i % 2 == 0) ? 1 : -1;
     let y = map(i, 0, amount, -windowHeight, windowHeight);
-    let x = map(sin(radians(frameCount + mouseY/step + (i * step))), -1, 1,
+    let x = map(sin(radians(frameCount * 0.05 + mouseY/step + (i * step))), -1, 1,
     -width * speed, width * speed) * dir;
       
       
