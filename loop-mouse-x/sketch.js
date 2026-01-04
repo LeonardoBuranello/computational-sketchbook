@@ -22,7 +22,7 @@ function setup() {
 
 
 function draw() {
-  background(nd);
+  background(bl);
 
   // Rect - Loop 1
   fill(ext);
