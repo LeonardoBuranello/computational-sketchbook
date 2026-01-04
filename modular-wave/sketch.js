@@ -7,10 +7,11 @@
 //Colors
    
     let bg = '#011C27';
-    let st = '#FAA6FF';
+    let st = '#f90c71';
     let nd = '#4F172A';
     let rd = '#00E5E8';
     let acc = '#E7EB90';
+    let acid = '#ccff33';
     let ext = '#FE4A49';
     let wh = '#FFFFFF';
     let bl = '#000000';
@@ -22,9 +23,10 @@
       st,
       nd,
       rd,
-      ext,
       acc,
-      wh
+      ext,
+      wh,
+      acid
       
       ];
     
@@ -58,46 +60,46 @@
 function draw (){
   
       
-    background(bg);
+    background(bl);
     noStroke();
     ellipseMode(CENTER);
   
   
 
-  // Main loop
+  // main loop
   
     for (let i = 0; i <= amount; i++) {
       
 
-    // Remapping values and change direction alternatively
+    // remapping values and change direction alternatively
     
     let dir = (i % 2 == 0) ? 1 : -1;
-    let y = map(i, 0, amount, -height/2, height/2);
-    let x = map(sin(radians(frameCount + (i * step))), -1, 1,
+    let y = map(i, 0, amount, -windowHeight, windowHeight);
+    let x = map(sin(radians(frameCount + mouseY/step + (i * step))), -1, 1,
     -width * speed, width * speed) * dir;
       
       
 
     push();
 
-    // Center the comp
+    // center the comp
     
-    translate(width/2, height/2);
+    translate(windowWidth/2, windowHeight/2);
     
-    // Wave axis 
+    // applico la sinusoide
     
     translate(x, y);
       
     
     // Increase the number of sin()
       
-    for (let r = 0; r < 10; r++) {
+    for (let r = 0; r < step; r++) {
 
-      let offsetX = r * 20 -100;
+      let offsetX = r * 30 - 100;
       
-    // Adding color array
+    // colore da array
       fill(palette[(i + r) % palette.length]);
-      circle(offsetX, 0, width/24);
+      circle(offsetX, 0, sw);
     }
 
     pop();
